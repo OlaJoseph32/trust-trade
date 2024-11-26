@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust-Trade</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/homeMedia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="./assets/images/trust-trade_logo-removebg-preview.png" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-bar-container">
+                <div class="logo">
+                    <a href="./index.html">
+                        <img src="./assets/images/trust-trade_logo-removebg-preview.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="navBar-nav-left">
+                    <li>
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="./index.html#cryptoTable">Markets</a>
+                    </li>
+                    <li>
+                        <a href="./index.html#container">About Us</a>
+                    </li>
+                </ul>
+                <ul class="navBar-nav-right">
+                    <li>
+                        <a href="./signup.html">
+                            <button class="btn btn-blue-outline">Sign Up</button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./login.html">
+                            <button class="btn btn-blue">Login</button>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Hamburger Manu -->
+                <button type="button" class="hamburger" id="menu-btn">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden" id="menu">
+            <ul>
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#">Markets</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+            </ul>
+            <div class="mobile-menu-button">
+                <a href="./signup.html">
+                    <button class="btn btn-blue-outline">Sign Up</button>
+                </a>
+                <a href="./login.html">
+                    <button class="btn btn-blue">Login</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero (first-section)-->
+    <section class="first-section-container">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-heading text-xxl">
+                    <span>CRYPTO</span>CURRENCY TRADING EASY AS <span>PIE</span>
+                </h1>
+                <div class="hero-buttons">
+                    <a href="./signup.html" class="btn btn-blue">Create wallet</a>
+                    <a href="./login.html" class="btn btn-blue-outline">View wallets</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- second section -->
+    <section class="second-section-container">
+        <div class="cont">
+            <div class="textanimation">
+                <h2 class="cssanimation moveRightToLeft">.....Hotlist Market ▼</h2>
+            </div>
+           
+            <!-- Table for real-time data -->
+            <table id="cryptoTable">
+                <thead>
+                    <tr>
+                        <th>COIN</th>
+                        <th>Price Naira (#)</th>
+                        <th>Price USD ($)</th>
+                        <th>Market Cap</th>
+                        <th>24h Change %</th>
+                    </tr>
+                </thead>
+               
+                <tbody>
+                    <tr>
+                        <td><i class="fa-brands fa-bitcoin fa-md" style="color: #ffa500;"></i> <strong>Bitcoin</strong> BTC</td>
+                        <td id="btcNaira"></td>
+                        <td id="btcDollar"></td>
+                        <td id="btcMc"></td>
+                        <td id="btcChange"></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-brands fa-ethereum fa-md" style="color: #4b4b4e;"></i> <strong>Ethereum</strong> ETH</td>
+                        <td id="ethNaira"></td>
+                        <td id="ethDollar"></td>
+                        <td id="ethMc"></td>
+                        <td id="ethChange"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/images-removebg-preview.png" class="DogeCoin" alt="DogecoinLogo"><strong>Dogecoin</strong> DOGE</td>
+                        <td id="dogeNaira"></td>
+                        <td id="dogeDollar"></td>
+                        <td id="dogeMc"></td>
+                        <td id="dogeChange"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/solana-sol-logo-removebg-preview.png" alt="SolanaLogo" class="crypto-logo"><strong>Solana</strong> SOL</td>
+                        <td id="solNaira"></td>
+                        <td id="solDollar"></td>
+                        <td id="solMc"></td>
+                        <td id="solChange"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/tether-usdt-logo-removebg-preview.png" alt="BUSD" class="crypto-logo"><strong>Tether</strong> USDT</td>
+                        <td id="busdNaira"></td>
+                        <td id="busdDollar"></td>
+                        <td id="busdMc"></td>
+                        <td id="busdChange"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Chart.js graph -->
+            <!-- <h2>Price Graph</h2> -->
+            <!-- <div class="chart-container">
+                <canvas id="cryptoChart"></canvas>
+            </div> -->
+        </div>
+    </section> 
+       
+    <!-- Third-section-container -->
+    <section class="third-section-container">
+        <div class="referrer-container">
+            <img src="./assets/images/referrer.png" alt="">
+        </div>
+    </section>
+
+
+    <!-- fourth-section-container -->
+    <section class="fourth-section-container">
+        <div class="container">
+            <h3 class="text-xxl">Start with as little as $50</h3>
+            <p class="text-md">Pay with credit card, debit card, or bank transfer</p>
+            <a href="#">
+                <button class="btn btn-green">Get Started</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- fifth-section-container -->
+    <section class="fifth-section-container">
+        <div class="container" id="container">
+            <div class="fifth-section-grid">
+                <img src="./assets/images/1200X900-Desktop-final-3.jpg" alt="">
+                <div class="box-text">
+                    <h4 class="text-lg text-center">Welcome to <span>TRUST-TRADE</span>, your reliable partner in cryptocurrency trading. Our platform is designed to be secure, user-friendly, and accessible to everyone, from beginners to experienced traders. We offer a wide range of cryptocurrencies, advanced security features, and comprehensive support to ensure a seamless trading experience. Join  <span>Trust-Trade</span> today and trade with confidence in a transparent and innovative environment.</h4>
+                    <a class="text-center" href="#">
+                        <button class="btn btn-blue">Get Started</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- sixth-section-container -->
+    <section class="sixth-section-container">
+        <div class="border-top"></div>
+    </section>
+
+    <!-- seventh-section-container -->
+    <section class="seventh-section-container">
+        <div class="container-sm">
+            <h5 class="text-xxl text-center">Have any questions?</h5>
+        </div>
+        <div class="container">
+            <div class="seventh-grid">
+                <div class="faq-content">
+                    <div class="faq-group">
+                        <div class="faq-group-header">
+                            <h4 class="text-md">How long does it take to receive my crypto after paying?</h4>
+                            <i class="fas fa-minus"></i>
+                        </div>
+                        <div class="faq-group-body open">
+                            <p class="text-sm">
+                                Your crypto is sent immediately after both your payment and wallet address have been confirmed.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-group">
+                        <div class="faq-group-header">
+                            <h4 class="text-md">What fiat currencies can I use?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-group-body">
+                            <p class="text-sm">
+                                USD, EUR, NGN as well as, AED, AUD, AZN, BDT, BRL, CAD, CHF, CLP, COP, CRC, CZK, DKK, DOP, DZD, EGP, GEL, HKD, HUF, IDR, ILS, INR, JPY, KES, KRW, KWD, MAD, MXN, MYR, NGN, NOK, PEN, PHP, PLN, RON, SAR, SEK, SGD, THB, TND, TRY, UAH, USD, VND, XAF, ZAR.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-group">
+                        <div class="faq-group-header">
+                            <h4 class="text-md">Can I buy crypto if I reside outside of the United States or Europe?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-group-body">
+                            <p class="text-sm">
+                                Yes, services are offered in over 190 countries worldwide, excluding restricted areas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-group">
+                        <div class="faq-group-header">
+                            <h4 class="text-md">Are my credit/debit card details stored in the system?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-group-body">
+                            <p class="text-sm">
+                                Trust-Trade doesn't store your credit/debit card details at any time.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-group">
+                        <div class="faq-group-header">
+                            <h4 class="text-md">Why must I provide my personal details?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-group-body">
+                            <p class="text-sm">
+                                Providers of financial services are required to collect certain details about their clients. In addition, this helps fight fraud and keep your account safe.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <img src="./assets/images/Coins-259747.png" alt=""> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- eight-section-container -->
+    <section class="eighth-section-container">
+        <div class="container">
+            <p class="text-lg">Have more questions?
+                <a href="#">Visit our FAQ</a>
+            </p>
+        </div>
+     </section>
+
+    <!-- ninth section -->
+    <section class="ninth-section-container text-center">
+        <div class="container">
+            <h2 class="text-xl">Subscribe to our newsletter</h2>
+            <input type="email" id="email" placeholder="Your Email">
+            <button type="submit" class="btn btn-green">Send</button>
+        </div>
+    </section>
+
+    <!-- last section -->
+    <section class="last-section-container">
+        <div class="container">
+            <div class="last-container-grid">
+                <div class="last-section-text-box">
+                    <h2 class="text-xxl">Download the Trust-Trade app to get started.</h2>
+                    <p class="text-md">Buy, sell, send and receive crypto right from the Trust-Trade app. Discover thousands of locations to buy crypto with cash. Buy and sell crypto using a debit card.</p>
+                    <button class="btn btn-green">Get Started</button>
+                </div>
+                <div class="mobile-image">
+                    <img src="./assets/images/phone-roto.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-text-box">
+                        <h3 class="text-xl">Follow Us</h3>
+                        <div class="text-sm">
+                            <a href="#"><i class="fa-brands fa-instagram fa-xl" style="color: #fff"></i> Instagram</a> 
+                            <a href="#"><i class="fa-brands fa-twitter fa-xl" style="color: #fff"></i> Twitter</a> 
+                            <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #fff"></i> Facebook</a> 
+                            <a href="#"><i class="fa-brands fa-linkedin fa-xl" style="color: #fff"></i> Linkedin</a> 
+                            <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #fff"></i></i> Youtube</a>
+                        </div>
+                    </div>
+    
+                    <div class="footer-text-box">
+                        <h3 class="text-xl">Company</h3>
+                        <div class="text-sm">
+                            <a href="#">About Us</a> 
+                            <a href="#">News</a> 
+                            <a href="#">Locations</a> 
+                            <a href="#">Careers</a> 
+                            <a href="#">Trust-Trade as a Service</a>
+                        </div>
+                    </div>
+    
+                    <div class="footer-text-box">
+                        <h3 class="text-xl">Resources</h3>
+                        <div class="text-sm">
+                            <a href="#">Blog</a>
+                            <a href="#">How To</a>
+                            <a href="./login.html">Sign In</a>
+                            <a href="#">Create Account</a>
+                            <a href="#">Support</a>
+                            <a href="#">Pricing</a>
+                            <a href="#">Contact Us</a>
+                            <a href="#">Legal</a>
+                            <a href="#">SEC Order</a>
+                            <a href="#">UpToken Notice</a> 
+                        </div>
+                    </div>
+    
+                    <div class="footer-text-box">
+                        <h3 class="text-xl">Trust-Trade Newsletter</h3>
+                        <p class="text-md">Sign up for the Trust-Trade newsletter, read by thousands every month.</p>
+                        <input type="email" id="email" placeholder="Enter your email address">
+                        <a href="#"><button type="submit" class="btn btn-green">Subscribe</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copywrite">
+            <div class="container text-center">
+                <h3>Copyright © 2024 Truat-Trade. By using this website, you accept our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>. <a href="#">Cookie Settings.</a> </h3>
+                <p class="text-sm">Crypto assets are highly volatile and largely unregulated. There is no guarantee that any crypto asset  will have at any time in the future certain value (if any) or market liquidity. Crypto assets are at risk of losing substantial (or all)value within a short time period.</p>
+                <span>Powered by <a href="https://www.instagram.com/iam_olajoseph?igsh=bHFuNTQ1bG1qdGFn&utm_source=qr">@iam_olajoseph</a></span>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
