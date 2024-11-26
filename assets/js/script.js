@@ -75,25 +75,25 @@ let previousData = {};
 let myData = new XMLHttpRequest();
 
 // Create a chart instance
-let ctx = document.getElementById('cryptoChart').getContext('2d');
-let cryptoChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Bitcoin', 'Ethereum', 'Dogecoin', 'Solana', 'USDT'],
-        datasets: [{
-            label: 'Price in USD',
-            data: [],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: { beginAtZero: false }
-        }
-    }
-});
+// let ctx = document.getElementById('cryptoChart').getContext('2d');
+// let cryptoChart = new Chart(ctx, {
+//     type: 'line',
+//     data: {
+//         labels: ['Bitcoin', 'Ethereum', 'Dogecoin', 'Solana', 'USDT'],
+//         datasets: [{
+//             label: 'Price in USD',
+//             data: [],
+//             backgroundColor: 'rgba(75, 192, 192, 0.2)',
+//             borderColor: 'rgba(75, 192, 192, 1)',
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: { beginAtZero: false }
+//         }
+//     }
+// });
 
 setInterval(() => {
     myData.open('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cdogecoin%2Csolana%2Ctether&vs_currencies=ngn%2Cusd&include_market_cap=true&precision=3');
